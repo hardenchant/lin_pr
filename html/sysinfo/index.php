@@ -195,7 +195,7 @@
 						$mem = exec("free -m | sed '1d' | head -n1");
 						$arr = sscanf($mem, "%s %d %d %d %d %d %d");
 						$warning = "normal";
-						if($arr[3]/$arr[1] < 0.2)
+						if($arr[6]/$arr[1] < 0.2)
 						{
 							$warning = "wrn";
 						}
@@ -212,10 +212,10 @@
 										<td>Memory</td>
 										<td>$arr[1]</td>
 										<td>$arr[2]</td>
-										<td><span class=\"$warning\">$arr[3]</span></td>
+										<td>$arr[3]</td>
 										<td>$arr[4]</td>
 										<td>$arr[5]</td>
-										<td>$arr[6]</td>
+										<td><span class=\"$warning\">$arr[6]</span></td>
 									</tr>
 							</table>";
 					?>
