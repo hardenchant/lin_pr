@@ -1,12 +1,19 @@
-#!/bin/bash
-sudo apt-get install apache2
-sudo apt-get install libapache2-mod-php7.0
-sudo apt-get install sysstat
-sudo apt-get install nginx
+#!/bin/sh
 
-sudo cp ./000-default.conf /etc/apache2/sites-availible/000-default.conf
+sudo apt-get -y install apache2
+sudo apt-get -y install libapache2-mod-php7.0
+sudo apt-get -y install sysstat
+
+sudo rm /etc/apache2/sites-available/000-default.conf
+sudo cp ./000-default.conf /etc/apache2/sites-available/000-default.conf
 sudo cp ./ports.conf /etc/apache2/ports.conf
-sudo cp ./default /etc/nginx/sites-availible/default
+sudo /etc/init.d/apache2 restart
+
+sudo apt-get -y install nginx
+sudo /etc/init.d/nginx restart
+
+sudo rm /etc/nginx/sites-available/default
+sudo cp ./default /etc/nginx/sites-available/
 
 sudo adduser lgv1
 sudo mkdir /home/lgv1/tasks
@@ -17,6 +24,7 @@ sudo cp ./task1.sh /home/lgv1/tasks
 
 sudo chmod +x /home/lgv1/tasks/startDump.sh
 sudo chmod +x /home/lgv1/tasks/stopDump.sh
+sudo chmod +x /home/lgv1/tasks/task1.sh
 
 sudo chown lgv1 /home/lgv1
 
