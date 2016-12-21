@@ -1,0 +1,3 @@
+SHELL=/bin/bash
+MAILTO=lgv1
+0-59 * * * * /home/lgv1/tasks/task1.sh
